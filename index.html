@@ -2,131 +2,131 @@
 <html lang="en">
 <head>
   <!-- Snipcart CSS & JS -->
-<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
-<script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+  <script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
   <meta charset="UTF-8">
   <title>Ell Vii's Sauces</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-   .heat-button {
-  border: none;
-  padding: 10px 14px;
-  margin: 6px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  transform: scale(1);
-}
+    .heat-button {
+      border: none;
+      padding: 10px 14px;
+      margin: 6px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      transform: scale(1);
+    }
 
-.heat-button:hover {
-  transform: scale(1.1);
-}
+    .heat-button:hover {
+      transform: scale(1.1);
+    }
 
-.heat-button.active {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
-}
+    .heat-button.active {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+    }
 
-.heat-button[data-filter=""] { background-color: #6c757d; } /* All - Gray */
-.heat-button[data-filter="No Heat"] { background-color: #f7b733; } /* Mango - Orange */
-.heat-button[data-filter="Mild"] { background-color: #7ed957; } /* Green */
-.heat-button[data-filter="Medium"] { background-color: #f39c12; } /* Yellow-orange */
-.heat-button[data-filter="Hot"] { background-color: #e74c3c; } /* Red */
-.heat-button[data-filter="Extreme Heat"] { background-color: #8e44ad; } /* Purple */
+    .heat-button[data-filter=""] { background-color: #6c757d; } /* All - Gray */
+    .heat-button[data-filter="No Heat"] { background-color: #f7b733; } /* Mango - Orange */
+    .heat-button[data-filter="Mild"] { background-color: #7ed957; } /* Green */
+    .heat-button[data-filter="Medium"] { background-color: #f39c12; } /* Yellow-orange */
+    .heat-button[data-filter="Hot"] { background-color: #e74c3c; } /* Red */
+    .heat-button[data-filter="Extreme Heat"] { background-color: #8e44ad; } /* Purple */
 
-body {
-  font-family: sans-serif;
-  background: #fff7ed;
-  margin: 0;
-  padding: 0;
-}
+    body {
+      font-family: sans-serif;
+      background: #fff7ed;
+      margin: 0;
+      padding: 0;
+    }
 
-header {
-  background: #ff7f50;
-  padding: 30px 20px 20px;
-  text-align: center;
-}
+    header {
+      background: #ff7f50;
+      padding: 30px 20px 20px;
+      text-align: center;
+    }
 
-.logo {
-  max-height: 120px;
-  width: auto;
-}
+    .logo {
+      max-height: 120px;
+      width: auto;
+    }
 
-nav {
-  margin-top: 20px;
-}
+    nav {
+      margin-top: 20px;
+    }
 
-nav a {
-  margin: 0 15px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 18px;
-}
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
 
-nav a:hover {
-  text-decoration: underline;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-.container {
-  padding: 20px;
-}
+    .container {
+      padding: 20px;
+    }
 
-.product-card {
-  background: white;
-  border-radius: 1rem;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-}
+    .product-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+    }
 
-.product-card h2 {
-  margin: 0 0 10px;
-}
+    .product-card h2 {
+      margin: 0 0 10px;
+    }
 
-.buy-button {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 16px;
-  margin: 8px 4px 0 0;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-}
+    .buy-button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 16px;
+      margin: 8px 4px 0 0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
 
-.buy-button:hover {
-  background-color: #218838;
-}
+    .buy-button:hover {
+      background-color: #218838;
+    }
 
-.sticky-cart {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #ff7f50;
-  color: white;
-  font-size: 24px;
-  padding: 12px 16px;
-  border-radius: 50%;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
-  transition: transform 0.2s ease-in-out;
-}
+    .sticky-cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff7f50;
+      color: white;
+      font-size: 24px;
+      padding: 12px 16px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      transition: transform 0.2s ease-in-out;
+    }
 
-.sticky-cart:hover {
-  transform: scale(1.1);
-  background-color: #e15b2f;
-}
+    .sticky-cart:hover {
+      transform: scale(1.1);
+      background-color: #e15b2f;
+    }
   </style>
 </head>
 <body>
-<a href="#" class="sticky-cart snipcart-checkout" aria-label="Cart">🛒</a>
-<div hidden id="snipcart" data-api-key="YOUR_PUBLIC_API_KEY_HERE"></div>
+  <a href="#" class="sticky-cart snipcart-checkout" aria-label="Cart">🛒</a>
+  <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_API_KEY_HERE"></div>
   <header>
     <img src="logo.png" alt="Ell Vii's Sauces Logo" class="logo">
     <nav>
