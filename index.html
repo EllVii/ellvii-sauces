@@ -113,6 +113,7 @@
       <a href="#about">About</a>
       <a href="#donate">Donate</a>
       <a href="#contact">Contact</a>
+      <a href="#" class="snipcart-checkout">🛒 Cart</a>
     </nav>
   </header>
 
@@ -140,16 +141,23 @@
   </div>
 <script>
   const apiUrl = "https://api.sheetbest.com/sheets/ea2ef4d2-c9ec-48ca-9dc0-336eab3a18f3";
-  const paypalBase = "https://www.paypal.me/ellviisauces/";
-
   const heatLevels = ["All", "No Heat", "Mild", "Medium", "Hot", "Extreme Heat"];
   let productData = [];
 
   function renderFilterButtons(containerId) {
     const container = document.getElementById(containerId);
+    const iconMap = {
+      "All": "🛒",
+      "No Heat": "🥭",
+      "Mild": "🌱",
+      "Medium": "🌶️",
+      "Hot": "🔥",
+      "Extreme Heat": "💀"
+    };
     heatLevels.forEach(level => {
       const btn = document.createElement("button");
-      btn.textContent = level;
+      const label = level || "All";
+      btn.textContent = `${iconMap[label]} ${label}`;
       btn.className = "heat-button";
       btn.dataset.filter = level === "All" ? "" : level;
       btn.addEventListener("click", () => {
@@ -164,7 +172,6 @@
   function renderProducts(data, filter = "") {
     const container = document.getElementById("product-container");
     container.innerHTML = "";
-
     data
       .filter(product =>
         !filter || product["Heat Level"].toLowerCase() === filter.toLowerCase()
@@ -179,12 +186,24 @@
           <p><strong>Heat Level:</strong> ${product["Heat Level"]}</p>
           <p><strong>8 oz:</strong> ${product["Price (8 oz)"]}</p>
           <p><strong>16 oz:</strong> ${product["Price (16 oz)"]}</p>
-          <a href="${paypalBase}${product["Price (8 oz)"]}" target="_blank">
-            <button class="buy-button">Buy 8 oz</button>
-          </a>
-          <a href="${paypalBase}${product["Price (16 oz)"]}" target="_blank">
-            <button class="buy-button">Buy 16 oz</button>
-          </a>
+
+          <button
+            class="buy-button snipcart-add-item"
+            data-item-id="${product["Product Name"]}-8oz"
+            data-item-name="${product["Product Name"]} (8 oz)"
+            data-item-price="${product["Price (8 oz)"]}"
+            data-item-url="https://ellvii.me"
+            data-item-description="${product["Flavor Base"]}"
+          >Add 8 oz to Cart</button>
+
+          <button
+            class="buy-button snipcart-add-item"
+            data-item-id="${product["Product Name"]}-16oz"
+            data-item-name="${product["Product Name"]} (16 oz)"
+            data-item-price="${product["Price (16 oz)"]}"
+            data-item-url="https://ellvii.me"
+            data-item-description="${product["Flavor Base"]}"
+          >Add 16 oz to Cart</button>
         `;
         container.appendChild(card);
       });
