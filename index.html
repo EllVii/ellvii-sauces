@@ -104,6 +104,25 @@
     }
   </style>
 </head>
+  .sticky-cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff7f50;
+  color: white;
+  font-size: 24px;
+  padding: 12px 16px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  transition: transform 0.2s ease-in-out;
+}
+
+.sticky-cart:hover {
+  transform: scale(1.1);
+  background-color: #e15b2f;
+}
   <a href="#" class="sticky-cart snipcart-checkout" aria-label="Cart">
   🛒
 </a>
