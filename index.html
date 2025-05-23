@@ -5,24 +5,34 @@
   <title>Ell Vii's Sauces</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .heat-button {
-  background-color: #ccc;
+   .heat-button {
   border: none;
   padding: 10px 14px;
-  margin: 5px;
-  border-radius: 6px;
+  margin: 6px;
+  border-radius: 8px;
   font-weight: bold;
+  font-size: 16px;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
 }
 
 .heat-button:hover {
-  background-color: #aaa;
+  transform: scale(1.1);
 }
 
 .heat-button.active {
-  background-color: #ff7f50;
-  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.heat-button[data-filter=""] { background-color: #6c757d; } /* All - Gray */
+.heat-button[data-filter="No Heat"] { background-color: #f7b733; } /* Mango - Orange */
+.heat-button[data-filter="Mild"] { background-color: #7ed957; } /* Green */
+.heat-button[data-filter="Medium"] { background-color: #f39c12; } /* Yellow-orange */
+.heat-button[data-filter="Hot"] { background-color: #e74c3c; } /* Red */
+.heat-button[data-filter="Extreme Heat"] { background-color: #8e44ad; } /* Purple */
 }
     body {
       font-family: sans-serif;
