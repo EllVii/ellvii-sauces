@@ -1,42 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Ell Vii's Sauces</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff7ed;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #ff7f50;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    nav a {
+      margin: 0 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+    }
+
+    .product-card h2 {
+      margin: 0 0 10px;
+    }
+
+    .buy-button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 16px;
+      margin: 8px 4px 0 0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .buy-button:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-  <div class="max-w-7xl mx-auto p-4">
-    <h1 class="text-4xl font-bold mb-6 text-center">Ell Vii's Sauces</h1>
-    <p class="text-center mb-8 text-lg">Unique BBQ & Salsa flavors made with love 🍍🔥</p>
-    
-    <div id="products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Ell Vii's Sauces Logo" class="logo">
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#donate">Donate</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1 id="shop">🌶️ Ell Vii's Sauces</h1>
+    <p>Vibrant, all-natural salsa & BBQ sauces. Support a good cause with every jar!</p>
+
+    <div id="product-container"></div>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Ell Vii’s Sauces was born out of a passion for flavor and purpose. All our products are made with love and natural ingredients—no artificial preservatives. We use salt and citrus from limes, oranges, and pineapples.</p>
+    </section>
+
+    <section id="donate">
+      <h2>Donate</h2>
+      <p>10% of all profits support children in foster care and those transitioning after trauma and abuse. Want to help more? You can donate directly via CashApp, PayPal, or Venmo.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: ellviisauces@gmail.com</p>
+      <p>Follow us on Instagram & Facebook @EllViiSauces</p>
+    </section>
   </div>
 
   <script>
-    fetch("https://api.sheetbest.com/sheets/ea2ef4d2-c9ec-48ca-9dc0-336eab3a18f3")
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById("products");
-        data.forEach(product => {
+    const apiUrl = "https://api.sheetbest.com/sheets/ea2ef4d2-c9ec-48ca-9dc0-336eab3a18f3";
+    const paypalBase = "https://www.paypal.me/ellvii/";
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(products => {
+        const container = document.getElementById("product-container");
+
+        products.forEach(product => {
           const card = document.createElement("div");
-          card.className = "bg-white p-4 rounded-xl shadow";
+          card.className = "product-card";
           card.innerHTML = `
-            <h2 class="text-xl font-bold">${product["Product Name"]}</h2>
-            <p><strong>Type:</strong> ${product.Type}</p>
-            <p><strong>Flavor Base:</strong> ${product["Flavor Base"]}</p>
+            <h2>${product["Product Name"]}</h2>
+            <p><strong>Type:</strong> ${product["Type"]}</p>
+            <p><strong>Flavor:</strong> ${product["Flavor Base"]}</p>
             <p><strong>Heat Level:</strong> ${product["Heat Level"]}</p>
-            <p><strong>Price (16 oz):</strong> $${product["Price (16 oz)"]}</p>
-            <p><strong>Price (8 oz):</strong> $${product["Price (8 oz)"]}</p>
+            <p><strong>8 oz:</strong> $${product["Price (8 oz)"]}</p>
+            <p><strong>16 oz:</strong> $${product["Price (16 oz)"]}</p>
+            <a href="${paypalBase}${product["Price (8 oz)"]}" target="_blank">
+              <button class="buy-button">Buy 8 oz</button>
+            </a>
+            <a href="${paypalBase}${product["Price (16 oz)"]}" target="_blank">
+              <button class="buy-button">Buy 16 oz</button>
+            </a>
           `;
           container.appendChild(card);
         });
       })
-      .catch(error => {
-        document.getElementById("products").innerText = "⚠️ Failed to load products.";
-        console.error("Error loading data:", error);
-      });
+      .catch(err => console.error("Error fetching products:", err));
   </script>
+
 </body>
 </html>
