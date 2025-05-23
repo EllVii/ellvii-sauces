@@ -13,21 +13,32 @@
   const heatLevels = ["All", "No Heat", "Mild", "Medium", "Hot", "Extreme Heat"];
   let productData = [];
 
-  function renderFilterButtons(containerId) {
-    const container = document.getElementById(containerId);
-    heatLevels.forEach(level => {
-      const btn = document.createElement("button");
-      btn.textContent = level;
-      btn.className = "heat-button";
-      btn.dataset.filter = level === "All" ? "" : level;
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".heat-button").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderProducts(productData, btn.dataset.filter);
-      });
-      container.appendChild(btn);
+function renderFilterButtons(containerId) {
+  const container = document.getElementById(containerId);
+
+  const iconMap = {
+    "All": "🛒",
+    "No Heat": "🥭",
+    "Mild": "🌱",
+    "Medium": "🌶️",
+    "Hot": "🔥",
+    "Extreme Heat": "💀"
+  };
+
+  heatLevels.forEach(level => {
+    const btn = document.createElement("button");
+    const label = level || "All";
+    btn.textContent = `${iconMap[label]} ${label}`;
+    btn.className = "heat-button";
+    btn.dataset.filter = level === "All" ? "" : level;
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".heat-button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderProducts(productData, btn.dataset.filter);
     });
-  }
+    container.appendChild(btn);
+  });
+}
 
   function renderProducts(data, filter = "") {
     const container = document.getElementById("product-container");
