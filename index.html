@@ -109,7 +109,7 @@
 
   <script>
     const apiUrl = "https://api.sheetbest.com/sheets/ea2ef4d2-c9ec-48ca-9dc0-336eab3a18f3";
-    const paypalBase = "https://www.paypal.me/ellvii/";
+    const paypalBase = "https://www.paypal.me/ellviisauces/";
 
     fetch(apiUrl)
       .then(response => response.json())
@@ -124,8 +124,8 @@
             <p><strong>Type:</strong> ${product["Type"]}</p>
             <p><strong>Flavor:</strong> ${product["Flavor Base"]}</p>
             <p><strong>Heat Level:</strong> ${product["Heat Level"]}</p>
-            <p><strong>8 oz:</strong> $${product["Price (8 oz)"]}</p>
-            <p><strong>16 oz:</strong> $${product["Price (16 oz)"]}</p>
+            <p><strong>8 oz:</strong> ${product["Price (8 oz)"]}</p>
+            <p><strong>16 oz:</strong> ${product["Price (16 oz)"]}</p>
             <a href="${paypalBase}${product["Price (8 oz)"]}" target="_blank">
               <button class="buy-button">Buy 8 oz</button>
             </a>
