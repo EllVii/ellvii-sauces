@@ -10,27 +10,33 @@
   const apiUrl = "https://api.sheetbest.com/sheets/ea2ef4d2-c9ec-48ca-9dc0-336eab3a18f3";
   const paypalBase = "https://www.paypal.me/ellviisauces/";
 
-  const heatLevels = ["", "No Heat", "Mild", "Medium", "Hot", "Extreme Heat"];
+  const heatLevels = ["All", "No Heat", "Mild", "Medium", "Hot", "Extreme Heat"];
+  let productData = [];
 
-  // Create the dropdown filter
-  const filterUI = document.createElement("div");
-  filterUI.style.marginBottom = "20px";
-  filterUI.innerHTML = `
-    <label for="heat-filter"><strong>Filter by Heat Level:</strong> </label>
-    <select id="heat-filter">
-      ${heatLevels.map(level => `<option value="${level}">${level || "All"}</option>`).join("")}
-    </select>
-  `;
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".container").prepend(filterUI);
-  });
+  function renderFilterButtons(containerId) {
+    const container = document.getElementById(containerId);
+    heatLevels.forEach(level => {
+      const btn = document.createElement("button");
+      btn.textContent = level;
+      btn.className = "heat-button";
+      btn.dataset.filter = level === "All" ? "" : level;
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".heat-button").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderProducts(productData, btn.dataset.filter);
+      });
+      container.appendChild(btn);
+    });
+  }
 
   function renderProducts(data, filter = "") {
     const container = document.getElementById("product-container");
     container.innerHTML = ""; // Clear previous products
 
     data
-      .filter(product => !filter || product["Heat Level"].toLowerCase() === filter.toLowerCase())
+      .filter(product =>
+        !filter || product["Heat Level"].toLowerCase() === filter.toLowerCase()
+      )
       .forEach(product => {
         const card = document.createElement("div");
         card.className = "product-card";
@@ -52,19 +58,23 @@
       });
   }
 
-  // Load products + set up filter
-  let productData = [];
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      productData = data;
-      renderProducts(productData);
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterWrap = document.createElement("div");
+    filterWrap.id = "filter-buttons";
+    filterWrap.style.marginBottom = "20px";
+    filterWrap.style.textAlign = "center";
+    document.querySelector(".container").prepend(filterWrap);
 
-      document.getElementById("heat-filter").addEventListener("change", (e) => {
-        renderProducts(productData, e.target.value);
-      });
-    })
-    .catch(err => console.error("Error fetching products:", err));
+    renderFilterButtons("filter-buttons");
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        productData = data;
+        renderProducts(productData);
+      })
+      .catch(err => console.error("Error fetching products:", err));
+  });
 </script>
     <div id="root"></div>
   </body>
