@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Snipcart CSS & JS -->
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
-  <script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
   <meta charset="UTF-8">
   <title>Ell Vii's Sauces</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,12 +27,12 @@
       transform: scale(1.05);
     }
 
-    .heat-button[data-filter=""] { background-color: #6c757d; } /* All - Gray */
-    .heat-button[data-filter="No Heat"] { background-color: #f7b733; } /* Mango - Orange */
-    .heat-button[data-filter="Mild"] { background-color: #7ed957; } /* Green */
-    .heat-button[data-filter="Medium"] { background-color: #f39c12; } /* Yellow-orange */
-    .heat-button[data-filter="Hot"] { background-color: #e74c3c; } /* Red */
-    .heat-button[data-filter="Extreme Heat"] { background-color: #8e44ad; } /* Purple */
+    .heat-button[data-filter=""] { background-color: #6c757d; }
+    .heat-button[data-filter="No Heat"] { background-color: #f7b733; }
+    .heat-button[data-filter="Mild"] { background-color: #7ed957; }
+    .heat-button[data-filter="Medium"] { background-color: #f39c12; }
+    .heat-button[data-filter="Hot"] { background-color: #e74c3c; }
+    .heat-button[data-filter="Extreme Heat"] { background-color: #8e44ad; }
 
     body {
       font-family: sans-serif;
@@ -122,26 +119,26 @@
       transform: scale(1.1);
       background-color: #333333;
     }
-  .snipcart-items-count {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: red;
-  color: white;
-  border-radius: 50%;
-  font-size: 12px;
-  padding: 4px 6px;
-  line-height: 1;
-  font-weight: bold;
-  z-index: 10000;
-}
-
+
+    .snipcart-items-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      padding: 4px 6px;
+      line-height: 1;
+      font-weight: bold;
+      z-index: 10000;
+    }
+  </style>
 </head>
-$1
+<body>
   <a href="#" class="sticky-cart snipcart-checkout" aria-label="Cart">
     🛒 <span class="snipcart-items-count">0</span>
-  </a><span class="snipcart-items-count">0</span>🛒
-  $1NDZlZjNhMDUtY2ViMi00MTE4LTkwOWYtMjBhZWZjODE5OTQ0NjM4ODM2MzAyMjEzODI4NzUz$2
+  </a>
   <header>
     <img src="logo.png" alt="Ell Vii's Sauces Logo" class="logo">
     <nav>
@@ -152,116 +149,120 @@ $1
       <a href="#" class="snipcart-checkout">🛒 Cart</a>
     </nav>
   </header>
-
   <div class="container">
     <h1 id="shop">🌶️ Ell Vii's Sauces</h1>
     <p>Vibrant, all-natural salsa & BBQ sauces. Support a good cause with every jar!</p>
-
     <div id="product-container"></div>
-
     <section id="about">
       <h2>About</h2>
       <p>Ell Vii’s Sauces was born out of a passion for flavor and purpose. All our products are made with love and natural ingredients—no artificial preservatives. We use salt and citrus from limes, oranges, and pineapples.</p>
     </section>
-
     <section id="donate">
       <h2>Donate</h2>
       <p>10% of all profits support children in foster care and those transitioning after trauma and abuse. Want to help more? You can donate directly via CashApp, PayPal, or Venmo.</p>
     </section>
-
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: ellviisauces@gmail.com</p>
       <p>Follow us on Instagram & Facebook @EllViiSauces</p>
     </section>
   </div>
-<script>
-  const apiUrl = "https://api.sheetbest.com/sheets/ea2ef4d2-c9ec-48ca-9dc0-336eab3a18f3";
-  const heatLevels = ["All", "No Heat", "Mild", "Medium", "Hot", "Extreme Heat"];
-  let productData = [];
+  <script>
+    const apiUrl = "https://api.sheetbest.com/sheets/ea2ef4d2-c9ec-48ca-9dc0-336eab3a18f3";
+    const heatLevels = ["All", "No Heat", "Mild", "Medium", "Hot", "Extreme Heat"];
+    let productData = [];
 
-  function renderFilterButtons(containerId) {
-    const container = document.getElementById(containerId);
-    const iconMap = {
-      "All": "🛒",
-      "No Heat": "🥭",
-      "Mild": "🌱",
-      "Medium": "🌶️",
-      "Hot": "🔥",
-      "Extreme Heat": "💀"
-    };
-    heatLevels.forEach(level => {
-      const btn = document.createElement("button");
-      const label = level || "All";
-      btn.textContent = `${iconMap[label]} ${label}`;
-      btn.className = "heat-button";
-      btn.dataset.filter = level === "All" ? "" : level;
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".heat-button").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderProducts(productData, btn.dataset.filter);
+    function renderFilterButtons(containerId) {
+      const container = document.getElementById(containerId);
+      const iconMap = {
+        "All": "🛒",
+        "No Heat": "🥭",
+        "Mild": "🌱",
+        "Medium": "🌶️",
+        "Hot": "🔥",
+        "Extreme Heat": "💀"
+      };
+      heatLevels.forEach(level => {
+        const btn = document.createElement("button");
+        const label = level || "All";
+        btn.textContent = `${iconMap[label]} ${label}`;
+        btn.className = "heat-button";
+        btn.dataset.filter = level === "All" ? "" : level;
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".heat-button").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderProducts(productData, btn.dataset.filter);
+        });
+        container.appendChild(btn);
       });
-      container.appendChild(btn);
+    }
+
+    function renderProducts(data, filter = "") {
+      const container = document.getElementById("product-container");
+      container.innerHTML = "";
+      data
+        .filter(product =>
+          !filter || product["Heat Level"].toLowerCase() === filter.toLowerCase()
+        )
+        .forEach(product => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.innerHTML = `
+            <h2>${product["Product Name"]}</h2>
+            <p><strong>Type:</strong> ${product["Type"]}</p>
+            <p><strong>Flavor:</strong> ${product["Flavor Base"]}</p>
+            <p><strong>Heat Level:</strong> ${product["Heat Level"]}</p>
+            <p><strong>8 oz:</strong> ${product["Price (8 oz)"]}</p>
+            <p><strong>16 oz:</strong> ${product["Price (16 oz)"]}</p>
+
+            <button
+              class="buy-button snipcart-add-item"
+              data-item-id="${product["Product Name"]}-8oz"
+              data-item-name="${product["Product Name"]} (8 oz)"
+              data-item-price="${product["Price (8 oz)"]}"
+              data-item-url="https://ellvii.me"
+              data-item-description="${product["Flavor Base"]}"
+            >Add 8 oz to Cart</button>
+
+            <button
+              class="buy-button snipcart-add-item"
+              data-item-id="${product["Product Name"]}-16oz"
+              data-item-name="${product["Product Name"]} (16 oz)"
+              data-item-price="${product["Price (16 oz)"]}"
+              data-item-url="https://ellvii.me"
+              data-item-description="${product["Flavor Base"]}"
+            >Add 16 oz to Cart</button>
+          `;
+          container.appendChild(card);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterWrap = document.createElement("div");
+      filterWrap.id = "filter-buttons";
+      filterWrap.style.marginBottom = "20px";
+      filterWrap.style.textAlign = "center";
+      document.querySelector(".container").prepend(filterWrap);
+
+      renderFilterButtons("filter-buttons");
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          productData = data;
+          renderProducts(productData);
+        })
+        .catch(err => console.error("Error fetching products:", err));
     });
-  }
-
-  function renderProducts(data, filter = "") {
-    const container = document.getElementById("product-container");
-    container.innerHTML = "";
-    data
-      .filter(product =>
-        !filter || product["Heat Level"].toLowerCase() === filter.toLowerCase()
-      )
-      .forEach(product => {
-        const card = document.createElement("div");
-        card.className = "product-card";
-        card.innerHTML = `
-          <h2>${product["Product Name"]}</h2>
-          <p><strong>Type:</strong> ${product["Type"]}</p>
-          <p><strong>Flavor:</strong> ${product["Flavor Base"]}</p>
-          <p><strong>Heat Level:</strong> ${product["Heat Level"]}</p>
-          <p><strong>8 oz:</strong> ${product["Price (8 oz)"]}</p>
-          <p><strong>16 oz:</strong> ${product["Price (16 oz)"]}</p>
-
-          <button
-            class="buy-button snipcart-add-item"
-            data-item-id="${product["Product Name"]}-8oz"
-            data-item-name="${product["Product Name"]} (8 oz)"
-            data-item-price="${product["Price (8 oz)"]}"
-            data-item-url="https://ellvii.me"
-            data-item-description="${product["Flavor Base"]}"
-          >Add 8 oz to Cart</button>
-
-          <button
-            class="buy-button snipcart-add-item"
-            data-item-id="${product["Product Name"]}-16oz"
-            data-item-name="${product["Product Name"]} (16 oz)"
-            data-item-price="${product["Price (16 oz)"]}"
-            data-item-url="https://ellvii.me"
-            data-item-description="${product["Flavor Base"]}"
-          >Add 16 oz to Cart</button>
-        `;
-        container.appendChild(card);
-      });
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const filterWrap = document.createElement("div");
-    filterWrap.id = "filter-buttons";
-    filterWrap.style.marginBottom = "20px";
-    filterWrap.style.textAlign = "center";
-    document.querySelector(".container").prepend(filterWrap);
-
-    renderFilterButtons("filter-buttons");
-
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        productData = data;
-        renderProducts(productData);
-      })
-      .catch(err => console.error("Error fetching products:", err));
-  });
-</script>
+  </script>
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: 'NDZlZjNhMDUtY2ViMi00MTE4LTkwOWYtMjBhZWZjODE5OTQ0NjM4ODM2MzAyMjEzODI4NzUz',
+      loadStrategy: 'on-user-interaction'
+    };
+  </script>
+  <script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+  <div hidden id="snipcart"></div>
 </body>
 </html>
