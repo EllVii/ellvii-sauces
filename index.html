@@ -205,6 +205,9 @@
           !filter || product["Heat Level"].toLowerCase() === filter.toLowerCase()
         )
         .forEach(product => {
+          const price8 = product["Price (8 oz)"].replace(/[^0-9.]/g, "");
+          const price16 = product["Price (16 oz)"].replace(/[^0-9.]/g, "");
+
           const card = document.createElement("div");
           card.className = "product-card";
           card.innerHTML = `
@@ -212,14 +215,14 @@
             <p><strong>Type:</strong> ${product["Type"]}</p>
             <p><strong>Flavor:</strong> ${product["Flavor Base"]}</p>
             <p><strong>Heat Level:</strong> ${product["Heat Level"]}</p>
-            <p><strong>8 oz:</strong> ${product["Price (8 oz)"]}</p>
-            <p><strong>16 oz:</strong> ${product["Price (16 oz)"]}</p>
+            <p><strong>8 oz:</strong> $${price8}</p>
+            <p><strong>16 oz:</strong> $${price16}</p>
 
             <button
               class="buy-button snipcart-add-item"
               data-item-id="${product["Product Name"]}-8oz"
               data-item-name="${product["Product Name"]} (8 oz)"
-              data-item-price="${product["Price (8 oz)"]}"
+              data-item-price="${price8}"
               data-item-url="https://ellvii.me"
               data-item-description="${product["Flavor Base"]}"
             >Add 8 oz to Cart</button>
@@ -228,13 +231,14 @@
               class="buy-button snipcart-add-item"
               data-item-id="${product["Product Name"]}-16oz"
               data-item-name="${product["Product Name"]} (16 oz)"
-              data-item-price="${product["Price (16 oz)"]}"
+              data-item-price="${price16}"
               data-item-url="https://ellvii.me"
               data-item-description="${product["Flavor Base"]}"
             >Add 16 oz to Cart</button>
           `;
           container.appendChild(card);
         });
+    },
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -258,11 +262,11 @@
   <script>
     window.SnipcartSettings = {
       publicApiKey: 'NDZlZjNhMDUtY2ViMi00MTE4LTkwOWYtMjBhZWZjODE5OTQ0NjM4ODM2MzAyMjEzODI4NzUz',
-      loadStrategy: 'on-user-interaction'
+      loadStrategy: 'always'
     };
   </script>
   <script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
-  <div hidden id="snipcart"></div>
+  <div hidden id="snipcart" data-api-key="NDZlZjNhMDUtY2ViMi00MTE4LTkwOWYtMjBhZWZjODE5OTQ0NjM4ODM2MzAyMjEzODI4NzUz"></div>
 </body>
 </html>
