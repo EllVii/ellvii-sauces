@@ -177,10 +177,26 @@
       <p>Ell Vii’s Sauces was born out of a passion for flavor and purpose. All our products are made with love and natural ingredients—no artificial preservatives. We use salt and citrus from limes, oranges, and pineapples.</p>
     </section>
 
-    <section id="donate">
-      <h2>Donate</h2>
-      <p>10% of all profits support children in foster care and those transitioning after trauma and abuse.</p>
-    </section>
+   <section id="donate">
+  <h2>Donate</h2>
+  <p>Support our mission! Your donation helps kids in foster care transition after trauma and abuse.</p>
+
+  <label for="donation-amount"><strong>Enter Donation Amount ($):</strong></label><br>
+  <input type="number" id="donation-amount" min="1" step="1" placeholder="10" style="margin-top: 10px; padding: 8px; width: 120px;" />
+  
+  <button
+    class="buy-button snipcart-add-item"
+    style="margin-top: 10px;"
+    data-item-id="donation"
+    data-item-name="Donation to Ell Vii's Cause"
+    data-item-url="https://ellvii.me"
+    data-item-description="Support for children transitioning after abuse"
+    data-item-custom1-name="Donation Amount"
+    onclick="handleDonationClick()"
+  >
+    Donate Now
+  </button>
+</section>
 
     <section id="contact">
       <h2>Contact</h2>
