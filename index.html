@@ -290,6 +290,15 @@
         })
         .catch(err => console.error("Error fetching products:", err));
     });
-  </script>
+  <script>
+  function handleDonationClick() {
+    const amount = document.getElementById('donation-amount').value;
+    if (!amount || parseFloat(amount) < 1) {
+      alert('Please enter a valid donation amount.');
+      return false;
+    }
+    document.querySelector('[data-item-id="donation"]').setAttribute('data-item-price', amount);
+  }
+</script>
 </body>
 </html>
