@@ -181,7 +181,13 @@
   <h2>Donate</h2>
   <p>Support our mission! Your donation helps kids in foster care transition after trauma and abuse.</p>
 
-  <label for="donation-amount"><strong>Enter Donation Amount ($):</strong></label><br>
+  <div style="margin: 10px 0;">
+    <button type="button" class="heat-button" onclick="setDonationAmount(5)">$5</button>
+    <button type="button" class="heat-button" onclick="setDonationAmount(10)">$10</button>
+    <button type="button" class="heat-button" onclick="setDonationAmount(25)">$25</button>
+  </div>
+
+  <label for="donation-amount"><strong>Or enter a custom amount:</strong></label><br>
   <input type="number" id="donation-amount" min="1" step="1" placeholder="10" style="margin-top: 10px; padding: 8px; width: 120px;" />
   
   <button
@@ -291,6 +297,10 @@
         .catch(err => console.error("Error fetching products:", err));
     });
   <script>
+  function setDonationAmount(amount) {
+    document.getElementById('donation-amount').value = amount;
+  }
+
   function handleDonationClick() {
     const amount = document.getElementById('donation-amount').value;
     if (!amount || parseFloat(amount) < 1) {
@@ -299,6 +309,13 @@
     }
     document.querySelector('[data-item-id="donation"]').setAttribute('data-item-price', amount);
   }
+
+  // Show thank-you message after checkout
+  document.addEventListener('snipcart.ready', () => {
+    Snipcart.events.on('checkout.confirmed', () => {
+      alert("💛 Thank you for supporting Ell Vii's cause!");
+    });
+  });
 </script>
 </body>
 </html>
