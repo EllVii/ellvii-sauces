@@ -91,7 +91,38 @@
       font-weight: bold;
       z-index: 10000;
     }
-  </style>
+  .heat-button {
+  border: none;
+  padding: 10px 14px;
+  margin: 6px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.2s ease;
+  transform: scale(1);
+}
+
+.heat-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.heat-button.active {
+  transform: scale(1.12);
+  border: 2px solid #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Color codes for each level */
+.heat-button[data-filter=""] { background-color: #6c757d; }        /* All - Gray */
+.heat-button[data-filter="No Heat"] { background-color: #f7b733; } /* Mango - Orange */
+.heat-button[data-filter="Mild"] { background-color: #7ed957; }    /* Mild - Green */
+.heat-button[data-filter="Medium"] { background-color: #f39c12; }  /* Medium - Yellow */
+.heat-button[data-filter="Hot"] { background-color: #e74c3c; }     /* Hot - Red */
+.heat-button[data-filter="Extreme Heat"] { background-color: #8e44ad; } /* Extreme - Purple */
+</style>
 </head>
 
 <body>
