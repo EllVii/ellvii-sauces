@@ -126,3 +126,43 @@ nano Guess_The_Number.py
 python3 Guess_The_Number.py
 nano Guess_The_Number.py
 python3 Guess_The_Number.py
+ls
+cd ellvii-sauces
+git add public/index.html
+git commit -m "Switch to heat level filter buttons"
+git push origin main
+git restore ../.Xauthority ../.bash_history
+git add public/index.html
+git status
+Changes to be committed:
+git commit -m "Switch to heat filter buttons"
+git pull origin main --rebase
+git push origin main
+nano ~/ellvii-sauces/public/index.html
+git add public/index.html
+git commit -m "Add heat level emojis to filter buttons"
+git push origin main
+nano ~/ellvii-sauces/public/index.html
+git add public/index.html
+git commit -m "Add animation and color to heat filter buttons"
+git push origin main
+git pull origin main --rebase
+git push origin main
+git add public/index.html
+git commit -m "Add sticky floating cart button"
+git push origin main
+git pull origin main --rebase
+git push origin main
+git add public/index.html
+git pull origin main --rebase
+git push origin main
+git add public/index.html
+git commit -m "Add sticky floating cart button"
+git push origin main
+ls
+ellvii-sauces
+cd ellvii-sauces
+git pull origin main --rebase
+nano ~/ellvii-sauces/public/index.html
+git add public/index.html
+git pull origin main --rebase
