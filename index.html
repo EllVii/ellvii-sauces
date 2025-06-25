@@ -1,368 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ell Vii's Sauces</title>
-  <meta name="description" content="Vibrant all-natural salsas & BBQ sauces that support foster kids. Get Sauced with Purpose!" />
-  <meta name="author" content="Ell Vii's Sauces" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ell Vii's Sauces</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+    <script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+    <script>
+      window.SnipcartSettings = {
+        publicApiKey: "NDZlZjNhMDUtY2ViMi00MTE4LTkwOWYtMjBhZWZjODE5OTQ0NjM4ODM2MzAyMjEzODI4NzUz",
+        loadStrategy: "always",
+        version: "3.3.0"
+      };
+    </script>
+  </head>
+  <body class="bg-amber-50 text-gray-800 font-sans">
+    <!-- Snipcart -->
+    <div hidden id="snipcart" data-api-key="NDZlZjNhMDUtY2ViMi00MTE4LTkwOWYtMjBhZWZjODE5OTQ0NjM4ODM2MzAyMjEzODI4NzUz"></div>
 
-  <!-- Snipcart Loader -->
-  <script>
-    window.SnipcartSettings = {
-      publicApiKey: 'NDZlZjNhMDUtY2ViMi00MTE4LTkwOWYtMjBhZWZjODE5OTQ0NjM4ODM2MzAyMjEzODI4NzUz',
-      loadStrategy: 'always',
-      version: '3.3.0'
-    };
-  </script>
-  <script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-fuchsia-600 to-pink-500 py-8 text-white text-center">
+      <img src="logo.png" alt="Ell Vii's Logo" class="mx-auto h-24" />
+      <h1 class="text-3xl md:text-5xl font-bold mt-4">Get Sauced with a Purpose</h1>
+      <nav class="mt-4 space-x-6">
+        <a href="#shop" class="hover:underline">Shop</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#donate" class="hover:underline">Donate</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+    </header>
 
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #fff7ed;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: #ff7f50;
-      padding: 30px 20px 20px;
-      text-align: center;
-    }
-
-    .logo {
-      max-height: 120px;
-      width: auto;
-      alt: "Ell Vii's Logo"
-    }
-
-    nav {
-      margin-top: 20px;
-    }
-
-    nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      padding: 20px;
-    }
-
-    .sticky-cart {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #000;
-  color: white;
-  font-size: 24px;
-  padding: 12px 16px;
-  border-radius: 50%;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
-  transition: transform 0.25s ease, background-color 0.3s ease;
-}
-.buy-button {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 16px;
-  margin: 8px 4px 0 0;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.25s ease;
-}
-
-.buy-button:hover {
-  background-color: #218838;
-  transform: scale(1.08);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-.sticky-cart:hover {
-  transform: scale(1.15) rotate(-5deg);
-  background-color: #ff7f50;
-}
-    .snipcart-items-count {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: red;
-      color: white;
-      border-radius: 50%;
-      font-size: 12px;
-      padding: 4px 6px;
-      line-height: 1;
-      font-weight: bold;
-      z-index: 10000;
-    }
-  .heat-button {
-  border: none;
-  padding: 10px 14px;
-  margin: 6px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.2s ease;
-  transform: scale(1);
-}
-
-.heat-button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.heat-button.active {
-  transform: scale(1.12);
-  border: 2px solid #fff;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
-
-/* Color codes for each level */
-.heat-button[data-filter=""] { background-color: #6c757d; }        /* All - Gray */
-.heat-button[data-filter="No Heat"] { background-color: #f7b733; } /* Mango - Orange */
-.heat-button[data-filter="Mild"] { background-color: #7ed957; }    /* Mild - Green */
-.heat-button[data-filter="Medium"] { background-color: #f39c12; }  /* Medium - Yellow */
-.heat-button[data-filter="Hot"] { background-color: #e74c3c; }     /* Hot - Red */
-.heat-button[data-filter="Extreme Heat"] { background-color: #8e44ad; } /* Extreme - Purple */
-</style>
-</head>
-
-<body>
-  <!-- Snipcart Container -->
-  <div hidden id="snipcart" data-api-key="NDZlZjNhMDUtY2ViMi00MTE4LTkwOWYtMjBhZWZjODE5OTQ0NjM4ODM2MzAyMjEzODI4NzUz"></div>
-
-  <!-- Sticky Cart -->
-  <a href="#" class="sticky-cart snipcart-checkout" aria-label="Cart">
-    🛒 <span class="snipcart-items-count">0</span>
-  </a>
-
-  <!-- Header -->
-  <header>
-    <img src="logo.png" alt="Ell Vii's Sauces Logo" class="logo" />
-    <nav aria-label="Main navigation">
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="#donate">Donate</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main class="container" role="main">
-    <h1 id="shop">🌶️ Ell Vii's Sauces</h1>
-    <p>Vibrant, all-natural salsa & BBQ sauces. Support a good cause with every jar!</p>
-
-    <div id="filter-buttons" aria-label="Heat filter options"></div>
-    <div id="product-container"></div>
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        Ell Vii’s Sauces was born out of a passion for flavor and purpose. All our products are made with love and natural ingredients—no artificial preservatives.
-        We use salt and citrus from limes, oranges, and pineapples.
-      </p>
+    <!-- Hero -->
+    <section class="bg-yellow-200 text-center py-12 px-4">
+      <h2 class="text-2xl md:text-4xl font-bold mb-2">Vibrant, All-Natural Salsa & BBQ Sauces</h2>
+      <p class="text-lg">Every jar helps kids find love, hope, and a future beyond trauma.</p>
     </section>
 
-    <section id="donate" aria-label="Donation section">
-      <h2>Donate</h2>
-      <p>Support our mission! Your donation helps kids in foster care transition after trauma and abuse.</p>
+    <!-- Filter Buttons -->
+    <div id="filter-buttons" class="flex flex-wrap justify-center my-6 gap-3 px-4"></div>
 
-      <div role="group" aria-label="Donation preset buttons" style="margin: 10px 0;">
-        <button type="button" class="heat-button" onclick="setDonationAmount(5)">$5</button>
-        <button type="button" class="heat-button" onclick="setDonationAmount(10)">$10</button>
-        <button type="button" class="heat-button" onclick="setDonationAmount(25)">$25</button>
+    <!-- Product Grid -->
+    <div id="product-container" class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-4 pb-16"></div>
+
+    <!-- Sections -->
+    <section id="about" class="bg-white p-6 md:p-12">
+      <h2 class="text-2xl font-bold mb-4">About</h2>
+      <p>Ell Vii’s Sauces was born out of love for flavor and purpose. Every jar uses real ingredients — salt, citrus, and care — with 10% of proceeds helping foster kids in transition.</p>
+    </section>
+
+    <section id="donate" class="bg-lime-100 p-6 md:p-12">
+      <h2 class="text-2xl font-bold mb-4">Donate</h2>
+      <p>Support foster youth directly — choose a donation amount or customize your gift.</p>
+      <div class="flex flex-wrap gap-4 my-4">
+        <button onclick="setDonationAmount(5)" class="px-4 py-2 rounded-full bg-pink-500 text-white font-bold hover:bg-pink-600">$5</button>
+        <button onclick="setDonationAmount(10)" class="px-4 py-2 rounded-full bg-pink-500 text-white font-bold hover:bg-pink-600">$10</button>
+        <button onclick="setDonationAmount(25)" class="px-4 py-2 rounded-full bg-pink-500 text-white font-bold hover:bg-pink-600">$25</button>
       </div>
-
-      <label for="donation-amount"><strong>Or enter a custom amount:</strong></label><br>
-      <input
-        type="number"
-        id="donation-amount"
-        min="1"
-        step="1"
-        placeholder="10"
-        aria-label="Custom donation amount"
-        style="margin-top: 10px; padding: 8px; width: 120px;"
-      />
-
-      <button
-        class="buy-button snipcart-add-item"
-        style="margin-top: 10px;"
+      <input type="number" id="donation-amount" placeholder="Custom Amount" class="p-2 rounded border w-32" />
+      <button onclick="handleDonationClick()"
+        class="mt-4 block bg-purple-600 text-white px-6 py-2 rounded snipcart-add-item"
         data-item-id="donation"
         data-item-name="Donation to Ell Vii's Cause"
         data-item-url="https://ellvii.me"
-        data-item-description="Support for children transitioning after abuse"
+        data-item-description="Support for children in foster care"
         data-item-custom1-name="Donation Amount"
-        onclick="handleDonationClick()"
-      >
-        Donate Now
-      </button>
+      >Donate Now</button>
     </section>
 
-    <section id="contact" aria-label="Contact section">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:ellviisauces@gmail.com">ellviisauces@gmail.com</a></p>
-      <p>Instagram & Facebook: <a href="https://instagram.com/EllViiSauces" target="_blank">@EllViiSauces</a></p>
+    <section id="contact" class="bg-white p-6 md:p-12">
+      <h2 class="text-2xl font-bold mb-4">Contact</h2>
+      <p>Email: <a href="mailto:ellviisauces@gmail.com" class="text-blue-600">ellviisauces@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/EllViiSauces" class="text-blue-600">@EllViiSauces</a></p>
     </section>
-  </main>
-<script>
-  const apiUrl = "https://api.sheetbest.com/sheets/9407aa46-fbf7-4e36-b139-c971f8a18d51";
-  const heatLevels = ["All", "No Heat", "Mild", "Medium", "Hot", "Extreme Heat"];
-  let productData = [];
 
-  function renderFilterButtons(containerId) {
-    const container = document.getElementById(containerId);
-    const iconMap = {
-      "All": "🛒",
-      "No Heat": "🥭",
-      "Mild": "🌱",
-      "Medium": "🌶️",
-      "Hot": "🔥",
-      "Extreme Heat": "💀"
-    };
-    heatLevels.forEach(level => {
-      const btn = document.createElement("button");
-      btn.textContent = `${iconMap[level]} ${level}`;
-      btn.className = "heat-button";
-      btn.dataset.filter = level === "All" ? "" : level;
-      btn.setAttribute("aria-label", level);
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".heat-button").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        renderProducts(productData, btn.dataset.filter);
-      });
-      container.appendChild(btn);
-    });
-  }
+    <!-- Floating Cart -->
+    <a href="#" class="fixed bottom-6 right-6 bg-black text-white text-2xl rounded-full px-5 py-3 shadow-lg snipcart-checkout">
+      🛒 <span class="snipcart-items-count">0</span>
+    </a>
 
-  function sanitizePrice(price) {
-    return price.replace(/[^\d.]/g, '');
-  }
+    <!-- Scripts -->
+    <script>
+      const apiUrl = "data/products.json"; // Replace with your local JSON path
+      const heatLevels = ["All", "No Heat", "Mild", "Medium", "Hot", "Extreme Heat"];
+      const iconMap = { "All": "🛒", "No Heat": "🥭", "Mild": "🌱", "Medium": "🌶️", "Hot": "🔥", "Extreme Heat": "💀" };
+      let productData = [];
 
-  function renderProducts(data, filter = "") {
-    const container = document.getElementById("product-container");
-    container.innerHTML = "";
-    data
-      .filter(product =>
-        !filter || product["Heat Level"].toLowerCase() === filter.toLowerCase()
-      )
-      .forEach(product => {
-        const card = document.createElement("div");
-        card.className = "product-card";
-        const price8 = sanitizePrice(product["Price (8 oz)"]);
-        const price16 = sanitizePrice(product["Price (16 oz)"]);
-        card.innerHTML = `
-          <h2>${product["Product Name"]}</h2>
-          <p><strong>Type:</strong> ${product["Type"]}</p>
-          <p><strong>Flavor:</strong> ${product["Flavor Base"]}</p>
-          <p><strong>Heat Level:</strong> ${product["Heat Level"]}</p>
-          <p><strong>8 oz:</strong> $${price8}</p>
-          <p><strong>16 oz:</strong> $${price16}</p>
-          <button
-            class="buy-button snipcart-add-item"
-            data-item-id="${product["Product Name"]}-8oz"
-            data-item-name="${product["Product Name"]} (8 oz)"
-            data-item-price="${price8}"
-            data-item-url="https://ellvii.me"
-            data-item-description="${product["Flavor Base"]}"
-            data-item-shippable="true"
-          >Add 8 oz to Cart</button>
-          <button
-            class="buy-button snipcart-add-item"
-            data-item-id="${product["Product Name"]}-16oz"
-            data-item-name="${product["Product Name"]} (16 oz)"
-            data-item-price="${price16}"
-            data-item-url="https://ellvii.me"
-            data-item-description="${product["Flavor Base"]}"
-            data-item-shippable="true"
-          >Add 16 oz to Cart</button>
-        `;
-        container.appendChild(card);
-      });
-  }
-
-  function setDonationAmount(amount) {
-    document.getElementById('donation-amount').value = amount;
-  }
-
-  function handleDonationClick() {
-    const amount = document.getElementById('donation-amount').value;
-    if (!amount || parseFloat(amount) < 1) {
-      alert('Please enter a valid donation amount.');
-      return false;
-    }
-    document.querySelector('[data-item-id="donation"]').setAttribute('data-item-price', amount);
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    renderFilterButtons("filter-buttons");
-
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        productData = data;
-        renderProducts(productData);
-      })
-      .catch(err => console.error("Error fetching products:", err));
-  });
-
-  document.addEventListener('snipcart.ready', () => {
-    // Auto-apply coupon
-    Snipcart.api.cart.setDiscount("BOGO25");
-
-    // Thank-you after checkout
-    Snipcart.events.on('checkout.confirmed', (order) => {
-      alert("💛 Thank you for supporting Ell Vii's cause!");
-
-      // Send order summary email to seller (you)
-      fetch('https://formspree.io/f/yourformid', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          _subject: "New Ell Vii's Order",
-          message: `You have a new order! Total: $${order.total}, Customer: ${order.billingAddress.name}, Items: ${order.items.length}`,
-        })
-      });
-    });
-
-    // ZIP-based shipping + free shipping logic
-    Snipcart.events.on('shippingaddress.changed', (data) => {
-      const zip = data.postalCode;
-      const state = data.region;
-      const totalItems = Snipcart.store.getState().cart.items.reduce((sum, item) => {
-        if (item.id !== 'donation') sum += item.quantity;
-        return sum;
-      }, 0);
-
-      let rates = [];
-
-      if (zip?.startsWith("85")) {
-        rates.push({ id: "pickup", description: "🚗 Local Pickup (Maricopa County)", cost: 0 });
+      function renderFilterButtons(containerId) {
+        const container = document.getElementById(containerId);
+        heatLevels.forEach(level => {
+          const btn = document.createElement("button");
+          btn.textContent = `${iconMap[level]} ${level}`;
+          btn.className = "px-4 py-2 bg-fuchsia-500 text-white rounded-full hover:bg-fuchsia-600";
+          btn.dataset.filter = level === "All" ? "" : level;
+          btn.onclick = () => {
+            document.querySelectorAll("#filter-buttons button").forEach(b => b.classList.remove("ring", "ring-white"));
+            btn.classList.add("ring", "ring-white");
+            renderProducts(productData, btn.dataset.filter);
+          };
+          container.appendChild(btn);
+        });
       }
 
-      if (state === "AZ") {
-        rates.push({ id: "az_shipping", description: "📦 AZ Shipping", cost: 5.99 });
-      } else {
-        rates.push({ id: "us_shipping", description: "📦 US Shipping", cost: 7.99 });
+      function renderProducts(data, filter = "") {
+        const container = document.getElementById("product-container");
+        container.innerHTML = "";
+        data.filter(p => !filter || p["Heat Level"] === filter).forEach(product => {
+          const card = document.createElement("div");
+          card.className = "bg-white rounded-xl shadow-md p-6 flex flex-col justify-between";
+          card.innerHTML = `
+            <h3 class="text-xl font-bold mb-2">${product["Product Name"]}</h3>
+            <p class="mb-1 text-sm text-gray-600">Type: ${product.Type}</p>
+            <p class="mb-1 text-sm">Flavor: ${product["Flavor Base"]}</p>
+            <p class="mb-1 text-sm">Heat: ${product["Heat Level"]}</p>
+            <p class="mb-2 text-sm">8 oz: $${product["Price (8 oz)"]} / 16 oz: $${product["Price (16 oz)"]}</p>
+            <div class="flex gap-2 mt-2">
+              <button
+                class="buy-button snipcart-add-item"
+                data-item-id="${product["Product Name"]}-8oz"
+                data-item-name="${product["Product Name"]} (8 oz)"
+                data-item-price="${product["Price (8 oz)"]}"
+                data-item-url="https://ellvii.me"
+                data-item-description="${product["Flavor Base"]}"
+                data-item-shippable="true"
+              >Add 8 oz</button>
+              <button
+                class="buy-button snipcart-add-item"
+                data-item-id="${product["Product Name"]}-16oz"
+                data-item-name="${product["Product Name"]} (16 oz)"
+                data-item-price="${product["Price (16 oz)"]}"
+                data-item-url="https://ellvii.me"
+                data-item-description="${product["Flavor Base"]}"
+                data-item-shippable="true"
+              >Add 16 oz</button>
+            </div>
+          `;
+          container.appendChild(card);
+        });
       }
 
-      if (totalItems >= 3) {
-        rates.unshift({ id: "free", description: "🎉 Free Shipping (3+ jars)", cost: 0 });
+      function setDonationAmount(amount) {
+        document.getElementById("donation-amount").value = amount;
       }
 
-      Snipcart.api.shipping.setShippingRates(rates);
-    });
-  });
-</script>
-</body>
+      function handleDonationClick() {
+        const amount = document.getElementById("donation-amount").value;
+        if (!amount || parseFloat(amount) < 1) {
+          alert("Please enter a valid donation amount.");
+          return;
+        }
+        document.querySelector('[data-item-id="donation"]').setAttribute("data-item-price", amount);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderFilterButtons("filter-buttons");
+        fetch(apiUrl)
+          .then(res => res.json())
+          .then(data => {
+            productData = data;
+            renderProducts(productData);
+          });
+      });
+    </script>
+  </body>
 </html>
