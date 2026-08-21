@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 
 const rootElement = document.getElementById('root');
 
-// The customer-facing storefront is currently a static HTML shell. Only mount
-// React when a page explicitly provides #root so the production build does not
-// throw or duplicate the storefront UI.
+// The storefront is currently delivered by the static HTML shell. Load the
+// legacy React app only when a page intentionally provides #root. Keeping the
+// App import inside this branch also prevents App.css global styles from
+// overriding the storefront during a production build.
 if (rootElement) {
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
+  import('./App').then(({ default: App }) => {
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  });
 }
