@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#32113e">
+<meta name="description" content="Find Ell Vii's Sauces pop-up salsa tastings, upcoming locations, and the optional adult hot salsa challenge. Ask about participating and being considered for social media and YouTube features.">
+<title>Pop-Up Salsa Tastings & Hot Challenge | Ell Vii's Sauces</title>
+<link rel="icon" href="/logo.png" type="image/png">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyo5WIEi0zbF3yU=" crossorigin="">
+<style>
+:root{color-scheme:light;--ink:#25132e;--plum:#32113e;--pink:#c21f68;--cream:#fff8eb;--gold:#ffdb55}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #efad09;outline-offset:3px}h1,h2,h3,p{margin-top:0}h1,h2,h3{line-height:1.14}h1{font-size:clamp(2.8rem,7vw,5.4rem);letter-spacing:-.04em}h2{font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-.025em}h3{font-size:1.3rem}.wrap{max-width:1120px;margin:auto;padding-left:22px;padding-right:22px}.skip{position:absolute;top:-100px;left:15px;padding:12px;background:#fff;color:#000;z-index:999}.skip:focus{top:12px}.hero{background:radial-gradient(circle at 86% 18%,#ffb83b8a,transparent 35%),linear-gradient(135deg,#251032,#772252 68%,#ed7045);color:#fff}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;text-decoration:none}.brand img{width:56px;height:56px;object-fit:contain;border-radius:15px;background:white;padding:3px}.nav-links{display:flex;flex-wrap:wrap;gap:9px}.nav-links a{padding:9px 13px;border:1px solid #ffffff55;border-radius:24px;font-weight:800;text-decoration:none;font-size:.9rem}.nav-links a:hover{background:#fff2}.hero-grid{display:grid;grid-template-columns:1.4fr .75fr;gap:42px;align-items:center;padding-top:74px;padding-bottom:80px}.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;font-weight:900;color:#fae48d}.intro{max-width:700px;font-size:1.16rem;color:#fff3ea}.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.button{display:inline-flex;justify-content:center;align-items:center;min-height:46px;padding:12px 20px;border:0;border-radius:999px;background:var(--gold);color:#2a192a;text-decoration:none;font-weight:900;cursor:pointer}.button:hover{filter:brightness(.94)}.button.secondary{color:#fff;background:transparent;border:2px solid #fff}.hero-art{border:1px solid #ffffff55;background:#ffffff19;border-radius:32px;padding:30px;text-align:center;box-shadow:0 24px 60px #250c3277}.hero-art .pepper{font-size:clamp(5rem,11vw,8.5rem);line-height:1.2}.hero-art strong{display:block;font-size:1.5rem}.hero-art small{color:#fffbe1}.section{padding-top:66px;padding-bottom:68px}.section-head{max-width:750px;margin-bottom:25px}.muted{color:#5e5560}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border-radius:24px;padding:28px;box-shadow:0 9px 25px #30113410}.card .emoji{font-size:2.3rem}.card p:last-child{margin-bottom:0}.band{background:#2b1239;color:#fff}.band .muted{color:#e5d7e5}.map-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:22px}.map-frame{background:white;border-radius:24px;padding:12px;box-shadow:0 9px 25px #30113410}#event-map{height:380px;max-width:100%;border-radius:16px;background:#eee9e0}.map-foot{margin:10px 6px 2px;color:#6b5a6b;font-size:.82rem}.event-list{display:grid;gap:14px;align-content:start}.event{padding:23px;background:#fff;border-radius:20px;color:#24132d}.event h3{margin-bottom:8px}.event a{display:inline-block;margin-top:8px;color:#9d1453;font-weight:850}.empty{border:2px dashed #d3b5c8;border-radius:22px;padding:30px;background:#fff9}.tag{display:inline-block;padding:4px 10px;background:#ffe8a4;color:#412330;border-radius:50px;font-size:.78rem;font-weight:900;margin-bottom:10px}.feature{display:grid;grid-template-columns:1fr 1fr;gap:26px}.steps{display:grid;gap:16px}.step{background:#ffffff17;border:1px solid #ffffff45;padding:22px;border-radius:18px}.step strong{font-size:1.15rem}.notice{border-left:5px solid #ffce4f;background:#fff5d7;border-radius:8px;padding:18px 20px;color:#39252a}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}label{display:block;font-weight:800;margin:0 0 6px}input,select,textarea{width:100%;border:2px solid #d5c5d2;border-radius:12px;padding:13px 14px;background:white;color:#26152c;font:inherit}textarea{min-height:100px;resize:vertical}.field{margin-bottom:18px}.check{display:flex;align-items:flex-start;gap:10px;font-weight:500;margin:12px 0}.check input{width:19px;height:19px;flex-shrink:0;margin-top:3px;accent-color:#ad1b65}.form-card{background:#fff;border-radius:26px;padding:clamp(22px,4vw,40px);box-shadow:0 14px 38px #30113414}.fine{font-size:.86rem;color:#6e6069}.submit-status{margin-top:14px;min-height:20px;font-weight:700}.footer{background:#1b0c25;color:#eee1ee;padding:32px 0;font-size:.9rem}.footer a{color:#ffe483}.inline-link{color:#a01860;font-weight:800}.split{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}.social-note{padding:23px;border-radius:24px;background:linear-gradient(125deg,#fbe7a7,#f9cade);color:#301235}.social-note h3{margin-bottom:10px}noscript{display:block;padding:12px}
+@media(max-width:800px){.hero-grid,.map-layout,.feature{grid-template-columns:1fr}.hero-grid{padding-top:48px;padding-bottom:54px}.hero-art{max-width:450px}.cards{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.section{padding-top:44px;padding-bottom:48px}.nav-links{width:100%}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hero">
+  <nav class="wrap nav" aria-label="Main navigation">
+    <a class="brand" href="/index.html"><img src="/logo.png" alt=""><span>ELL VII'S SAUCES</span></a>
+    <div class="nav-links"><a href="/index.html#shop">Shop</a><a href="#locations">Find a pop-up</a><a href="#join">Join the fun</a><a href="/my-story.html">Our story</a></div>
+  </nav>
+  <div class="wrap hero-grid">
+    <div><p class="eyebrow">Pop-up flavor experiences · Arizona</p><h1>Taste the flavor.<br><span style="color:#ffdf79">Face the heat.</span></h1><p class="intro">Catch Ell Vii's Sauces at a pop-up tasting, find your favorite salsa, and, if you're feeling brave, ask about the adults-only Hot Salsa Challenge. You might even be considered for a feature on our social pages or YouTube.</p><div class="buttons"><a class="button" href="#locations">Find the next pop-up</a><a class="button secondary" href="#join">Ask to participate</a></div></div>
+    <div class="hero-art" aria-label="Pop-up salsa tasting and hot challenge"><div class="pepper" aria-hidden="true">🌶️🔥</div><strong>THE HEAT IS ON</strong><p>From sweet and mild to<br>the legendary <strong>Kiss of Death</strong></p><small>Flavor comes first. Heat is your choice.</small></div>
+  </div>
+</header>
+<main id="main">
+  <section class="wrap section" aria-labelledby="experience-heading">
+    <div class="section-head"><p class="eyebrow" style="color:#9a1b5a">Pick your adventure</p><h2 id="experience-heading">A tasting for everyone. A challenge for the daring.</h2><p class="muted">Meet the flavors before you pick your level. Tastings and challenge availability may vary by location.</p></div>
+    <div class="cards">
+      <article class="card"><div class="emoji" aria-hidden="true">🥭</div><h3>Pop-Up Salsa Tasting</h3><p class="muted">Try a flavor flight, from fruit-forward and mild to pepper-packed favorites. Tell us which one deserves a spot on your table.</p></article>
+      <article class="card"><div class="emoji" aria-hidden="true">🌡️</div><h3>Choose Your Heat</h3><p class="muted">Find your comfort zone with No Heat, Mild, Medium, Hot, and Extreme Heat. No pressure to keep going.</p></article>
+      <article class="card"><div class="emoji" aria-hidden="true">💀</div><h3>The Hot Salsa Challenge · 18+</h3><p class="muted">Want to test your limits? Ask on-site about an optional extreme-heat tasting featuring Kiss of Death, when offered.</p></article>
+    </div>
+  </section>
+  <section id="locations" class="section band" aria-labelledby="map-heading">
+    <div class="wrap"><div class="section-head"><p class="eyebrow">The pop-up map</p><h2 id="map-heading">Where we'll pop up next</h2><p class="muted">Confirmed events appear on the map and in the list. We never post a pin until a location is announced.</p></div>
+      <div class="map-layout"><div class="map-frame"><div id="event-map" aria-label="Interactive map of announced Ell Vii's Sauces pop-up events"></div><p class="map-foot">Map © OpenStreetMap contributors. Map pins appear only for confirmed events with location coordinates.</p><noscript>Turn on JavaScript to see event locations and the map. You can also email <a href="mailto:ellviisauces@gmail.com">ellviisauces@gmail.com</a> for the next pop-up.</noscript></div>
+        <div class="event-list" id="event-list" aria-live="polite"><div class="empty"><h3>Checking the calendar…</h3><p>Looking for published locations.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="section band" style="padding-top:0" aria-labelledby="spotlight-heading"><div class="wrap feature">
+    <div><p class="eyebrow">Flavor faces & spicy reactions</p><h2 id="spotlight-heading">Want your moment in the spotlight?</h2><p class="muted">We may feature consenting participants in Ell Vii's Sauces social media posts, reaction clips, and YouTube videos. Being part of a tasting never requires being recorded, and requesting a feature doesn't guarantee publication.</p></div>
+    <div class="steps"><div class="step"><strong>1. Pick your experience</strong><div>Choose a flavor tasting or ask about the 18+ heat challenge.</div></div><div class="step"><strong>2. Choose whether to be featured</strong><div>Tell us your interests. We will ask separately before filming or posting and use an event media release.</div></div><div class="step"><strong>3. Share the flavor</strong><div>Watch for approved highlights on Instagram, Facebook, and our YouTube channel once published.</div></div></div>
+  </div></section>
+  <section class="wrap section" id="join" aria-labelledby="join-heading">
+    <div class="feature">
+      <div><p class="eyebrow" style="color:#9a1b5a">Let's make it saucy</p><h2 id="join-heading">Ask about the next tasting</h2><p class="muted">Interested in joining a future pop-up, taking on the heat, or hosting Ell Vii's Sauces at your venue? Send us a request. We'll reply with available details.</p><div class="notice"><strong>Hot challenge safety:</strong> The extreme-heat option is for adults 18+ only, is entirely voluntary, and may not be available at every event. Ask about ingredients and allergens first. Skip hot peppers if they could pose a health risk for you. Participants can stop at any time.</div><p class="fine" style="margin-top:16px">Family-friendly tasting arrangements may vary by venue. A parent or guardian must supervise any minors. Media appearances involving minors require separate guardian authorization.</p><div class="social-note"><h3>Follow the next flavor drop</h3><p>Look for <strong>@EllViiSauces</strong> on Instagram and Facebook. YouTube highlights will be linked here once an official channel URL is confirmed.</p><p style="margin-bottom:0"><a class="inline-link" href="/index.html#shop">Explore our sauces</a></p></div></div>
+      <form class="form-card" id="interest-form" aria-label="Pop-up participation request">
+        <div class="form-grid"><div class="field"><label for="guest-name">Your name *</label><input id="guest-name" name="name" required maxlength="100" autocomplete="name"></div><div class="field"><label for="guest-email">Email address *</label><input id="guest-email" name="email" type="email" required maxlength="180" autocomplete="email"></div></div>
+        <div class="field"><label for="interest">What are you interested in? *</label><select id="interest" name="interest" required><option value="">Choose one</option><option>Salsa tasting</option><option>Hot Salsa Challenge (18+)</option><option>Hosting a pop-up</option><option>General event information</option></select></div>
+        <div class="field"><label for="message">Optional note</label><textarea id="message" name="message" maxlength="600" placeholder="Preferred area, event, or questions (no sensitive health information, please)"></textarea></div>
+        <p style="font-weight:850;margin-bottom:8px">Optional media-feature interests</p>
+        <label class="check"><input type="checkbox" id="social-feature">I'd like to be considered for an Instagram or Facebook feature.</label>
+        <label class="check"><input type="checkbox" id="youtube-feature">I'd like to be considered for a YouTube feature.</label>
+        <label class="check"><input type="checkbox" id="adult" required>I'm at least 18 years old. *</label>
+        <p class="fine">Feature checkboxes only express interest, not filming consent. A separate release is required before recording or publication. You can participate without opting in to either feature.</p>
+        <button type="submit" class="button">Open my email request</button><div class="submit-status" id="submit-status" role="status" aria-live="polite"></div>
+        <p class="fine">This opens your email app with a prefilled message to <a href="mailto:ellviisauces@gmail.com">ellviisauces@gmail.com</a>. The website does not save or send this form directly. Review and send the email yourself. If your email app doesn't open, email us directly.</p>
+      </form>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="wrap split"><span>© <span id="year"></span> Ell Vii's Sauces · Being saucy never tasted so good.</span><span><a href="/index.html">Shop</a> · <a href="/my-story.html">Our story</a> · <a href="mailto:ellviisauces@gmail.com">Contact</a></span></div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+  'use strict';
+  document.getElementById('year').textContent=new Date().getFullYear();
+  const list=document.getElementById('event-list');
+  const mapElement=document.getElementById('event-map');
+  let map=null, bounds=[];
+  if(window.L){
+    map=L.map(mapElement,{scrollWheelZoom:false}).setView([33.45,-112.07],9);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+  }else{
+    mapElement.textContent='The map could not load. Published event details and directions will still appear alongside it.';
+    mapElement.style.padding='30px';
+  }
+  function todayInArizona(){
+    const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Phoenix',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+    const get=type=>parts.find(part=>part.type===type).value;
+    return get('year')+'-'+get('month')+'-'+get('day');
+  }
+  function element(tag,cls,copy){
+    const node=document.createElement(tag);
+    if(cls)node.className=cls;
+    if(copy!==undefined)node.textContent=copy;
+    return node;
+  }
+  function showEmpty(message){
+    list.replaceChildren();
+    const item=element('div','empty');
+    item.append(element('span','tag','Event updates'),element('h3','',message),element('p','','No upcoming pop-up location is confirmed yet. Check back or email us to ask about the next tasting.'));
+    const ask=element('a','inline-link','Ask about a pop-up');
+    ask.href='#join';item.append(ask);list.append(item);
+  }
+  async function loadEvents(){
+    try{
+      const response=await fetch('/data/popups.json',{cache:'no-store'});
+      if(!response.ok)throw new Error('Schedule file unavailable');
+      const data=await response.json();
+      if(!data||!Array.isArray(data.events))throw new Error('Invalid schedule format');
+      const today=todayInArizona();
+      const events=data.events.filter(event=>event.status==='published'&&/^\d{4}-\d{2}-\d{2}$/.test(event.date||'')&&event.date>=today&&event.title&&event.address).sort((a,b)=>a.date.localeCompare(b.date));
+      if(!events.length){showEmpty('Dates and locations coming soon');return;}
+      list.replaceChildren();
+      events.forEach(event=>{
+        const card=element('article','event');
+        const date=new Date(event.date+'T12:00:00').toLocaleDateString('en-US',{timeZone:'America/Phoenix',weekday:'long',month:'long',day:'numeric',year:'numeric'});
+        card.append(element('span','tag','Confirmed pop-up'),element('h3','',event.title),element('p','',date+(event.time?' · '+event.time+' Arizona time':'')),element('p','',[(event.venue||''),event.address].filter(Boolean).join(' · ')));
+        if(event.description)card.append(element('p','',event.description));
+        const directions=element('a','','Get directions');
+        directions.href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(event.address);
+        directions.target='_blank';directions.rel='noopener noreferrer';card.append(directions);list.append(card);
+        if(map&&Number.isFinite(event.lat)&&Number.isFinite(event.lng)){
+          const position=[event.lat,event.lng];
+          const marker=L.marker(position).addTo(map);
+          const title=element('strong','',event.title);
+          const details=element('div','',date+' · '+(event.venue||event.address));
+          const popup=element('div','');popup.append(title,details);
+          marker.bindPopup(popup);bounds.push(position);
+        }
+      });
+      if(map&&bounds.length)map.fitBounds(bounds,{padding:[48,48],maxZoom:13});
+    }catch(error){showEmpty('Pop-up schedule temporarily unavailable');}
+  }
+  loadEvents();
+  const form=document.getElementById('interest-form');
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    if(!form.reportValidity())return;
+    const name=document.getElementById('guest-name').value.trim();
+    const email=document.getElementById('guest-email').value.trim();
+    const interest=document.getElementById('interest').value;
+    const message=document.getElementById('message').value.trim();
+    const social=document.getElementById('social-feature').checked?'Interested':'Not requested';
+    const youtube=document.getElementById('youtube-feature').checked?'Interested':'Not requested';
+    const subject='Ell Vii\'s Sauces pop-up inquiry: '+interest;
+    const body=['Hello Ell Vii\'s Sauces,','', 'I would like information about '+interest+'.','', 'Name: '+name,'Email: '+email,'Instagram/Facebook feature interest: '+social,'YouTube feature interest: '+youtube,'Message: '+(message||'None'),'', 'I understand this inquiry is not a reservation or media release.','Please contact me with next steps.'].join('\n');
+    const url='mailto:ellviisauces@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    document.getElementById('submit-status').textContent='Your email app should open now. Please review and send the draft to complete your request.';
+    window.location.href=url;
+  });
+})();
+</script>
+</body>
+</html>
